@@ -7,7 +7,7 @@ const knex = require('knex')({
     connection: settings
 });
 
-(knex("famous_people").insert(
+knex("famous_people").insert(
     {first_name: process.argv[2],
     last_name: process.argv[3],
     birthdate: process.argv[4]}
@@ -17,7 +17,7 @@ const knex = require('knex')({
     }
     else {
         console.log("nice");
+        knex.destroy();
     }
-}).finally(function(){
-    knex.destroy();
-}))
+
+})
